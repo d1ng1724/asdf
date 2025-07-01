@@ -5,19 +5,20 @@ import com.example.db_crud.dto.OnlyID;
 import com.example.db_crud.dto.UpdateDto;
 import com.example.db_crud.service.BoardService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RestController
 @RequestMapping("/board")
 public class BoardController {
     private final BoardService boardService;
 
     public BoardController(BoardService boardService) {
         this.boardService = boardService;
+    }
+
+    @GetMapping("/page")
+    public String open_page(){
+        return "page_one";
     }
 
     @PostMapping("/save")
